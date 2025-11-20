@@ -3,6 +3,7 @@ package org.formation.projet_marielou_allain.service;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.formation.projet_marielou_allain.entity.BankAccount;
+import org.formation.projet_marielou_allain.entity.types.BankAccountType;
 import org.formation.projet_marielou_allain.repository.BankAccountRepository;
 import org.springframework.stereotype.Service;
 
@@ -33,8 +34,16 @@ public class BankAccountServiceImpl implements BankAccountService {
     }
 
     @Override
-    public BankAccount createBankAccount(BankAccount client) {
-        return repository.save(client);
+    public BankAccount createBankAccount(BankAccount bankAccount) {
+        if(bankAccount.getType() == BankAccountType.CURRENT_ACCOUNT){
+            bankAccount.setAuthorized_overdraft_in_cents(100000);
+
+        }
+        else if(bankAccount.getType() == BankAccountType.SAVINGS_ACCOUNT){
+            bankAccount.setRemuneration_rate(0.3f);
+
+        }
+        return repository.save(bankAccount);
     }
 
     @Override
@@ -49,8 +58,8 @@ public class BankAccountServiceImpl implements BankAccountService {
 
     @Override
     public Optional<BankAccount> updateBankAccount(Long id, BankAccount newData) {
-        BankAccount client = repository.findById(id).orElseThrow();
-        return Optional.of(repository.save(client));
+        BankAccount bankAccount = repository.findById(id).orElseThrow();
+        return Optional.of(repository.save(bankAccount));
     }
 
 }
