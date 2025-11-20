@@ -30,4 +30,13 @@ public class Client {
 
     @OneToOne
     private BankAccount savingAccount;
+
+    public Client(String name, String firstName, String phoneNumber, String address, String postalCode, String city) {
+        this.name = name;
+        this.firstName = firstName;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.postalCode = postalCode;
+        this.city = city;
+    }
 }

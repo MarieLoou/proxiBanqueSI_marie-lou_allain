@@ -18,8 +18,8 @@ public class ClientController {
         return service.getClients();
     };
     @PostMapping("/clients")
-    Client createClient(@RequestBody Client coffee){
-        return service.createClient(coffee);
+    Client createClient(@RequestBody Client client){
+        return service.createClient(client);
     };
 
     @GetMapping("/clients/{id}")
@@ -30,5 +30,11 @@ public class ClientController {
     @PutMapping("/clients/{id}")
     ResponseEntity<Client> updateClientById(@PathVariable Long id, @RequestBody Client newData){
         return service.updateClient(id, newData).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+    };
+
+    @DeleteMapping("/clients/{id}")
+    ResponseEntity<Void> deleteClientById(@PathVariable Long id){
+        service.deleteClient(id);
+        return ResponseEntity.noContent().build();
     };
 }

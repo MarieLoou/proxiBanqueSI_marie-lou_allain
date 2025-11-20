@@ -1,9 +1,12 @@
 package org.formation.projet_marielou_allain.entity;
 
 import jakarta.persistence.*;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
+
+@NoArgsConstructor
 @Entity
 public class Agency {
     @Id
