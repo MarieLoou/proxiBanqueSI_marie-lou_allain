@@ -9,14 +9,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-import jakarta.annotation.PostConstruct;
-import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
-
 @Service
 @RequiredArgsConstructor
 public class ClientServiceImpl implements ClientService {
@@ -26,11 +18,8 @@ public class ClientServiceImpl implements ClientService {
     private void initDb(){
         repository.saveAll(
                 List.of(
-                        new Client(),
-                        new Client(),
-                        new Client(),
-                        new Client(),
-                        new Client()
+                        new Client("Dupont", "Jean", "0689898989", "12 rue pouet pouet", "92190", "Meudon")
+
                 )
         );
     }

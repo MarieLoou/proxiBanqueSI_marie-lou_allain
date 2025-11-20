@@ -4,12 +4,16 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 enum BankAccountType {
     CURRENT_ACCOUNT,
     SAVINGS_ACCOUNT
 }
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class BankAccount {
     @Id
