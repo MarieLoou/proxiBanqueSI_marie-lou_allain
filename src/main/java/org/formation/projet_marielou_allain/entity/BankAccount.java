@@ -5,6 +5,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 
+enum BankAccountType {
+    CURRENT_ACCOUNT,
+    SAVINGS_ACCOUNT
+}
+
 @Entity
 public class BankAccount {
     @Id
@@ -13,5 +18,10 @@ public class BankAccount {
 
     @OneToOne
     private Client owner;
+
+    private int balance;
+    private int authorized_overdraft_in_cents;
+    private float remuneration_rate;
+    private BankAccountType type;
 
 }
