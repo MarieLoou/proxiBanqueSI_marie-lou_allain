@@ -7,13 +7,13 @@ import java.util.Optional;
 
 public interface ClientService {
 
-    List<Client> getClient ();
+    List<Client> getClients ();
 
     Client createClient(Client agency);
 
     Optional<Client> getClient(Long id);
 
-    Optional<Client> deleteClient(Long id);
+    void deleteClient(Long id);
 
     Optional<Client> updateClient(Long id, Client newData);
 }
