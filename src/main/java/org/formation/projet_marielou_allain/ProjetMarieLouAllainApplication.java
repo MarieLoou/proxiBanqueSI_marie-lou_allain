@@ -7,7 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ProjetMarieLouAllainApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(ProjetMarieLouAllainApplication.class, args);
+
+
     }
 
 }
