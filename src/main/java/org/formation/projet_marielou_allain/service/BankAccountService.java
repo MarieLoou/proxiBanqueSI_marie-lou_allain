@@ -13,7 +13,7 @@ public interface BankAccountService {
 
     Optional<BankAccount> getBankAccount(Long id);
 
-    Optional<BankAccount> deleteBankAccount(Long id);
+    void deleteBankAccount(Long id);
 
     Optional<BankAccount> updateBankAccount(Long id, BankAccount newData);
 }
